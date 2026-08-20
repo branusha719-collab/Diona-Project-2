@@ -1,0 +1,292 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms">
+  <h:head>
+    <h:title>Criminal Risk Assessment Request</h:title>
+    <model odk:xforms-version="1.0.0">
+      <instance>
+        <Criminal_Risk_Assessment_Request_XLSForm id="criminal_risk_assessment_request_v1" version="2025011001">
+          <sec_consent>
+            <consent_text/>
+            <is_unconsented/>
+            <consent_date/>
+            <consent_signature/>
+            <witness_name/>
+          </sec_consent>
+          <sec_subject_info>
+            <print_note/>
+            <first_name/>
+            <second_name/>
+            <last_name/>
+            <calc_full_name/>
+            <date_of_birth/>
+            <gender/>
+            <other_last_names/>
+            <other_first_names/>
+            <current_address/>
+            <current_phone/>
+            <birth_place/>
+          </sec_subject_info>
+          <sec_identification>
+            <id_instruction_note/>
+            <id_documents/>
+            <id_other_specify/>
+            <mb_dl_number/>
+          </sec_identification>
+          <sec_agency_request>
+            <subject_name_header/>
+            <cpic_niche_notice/>
+            <asterisk_notice/>
+            <agency_name/>
+            <reason_for_assessment/>
+            <assigned_worker/>
+            <last_assessment_date/>
+            <submitting_designate/>
+            <designate_phone/>
+            <designate_email/>
+            <designate_fax/>
+            <request_date/>
+            <disclaimer_note/>
+          </sec_agency_request>
+          <meta>
+            <instanceID/>
+          </meta>
+        </Criminal_Risk_Assessment_Request_XLSForm>
+      </instance>
+      <instance id="unconsented_list">
+        <root>
+          <item>
+            <name>unconsented</name>
+            <label>Unconsented</label>
+          </item>
+        </root>
+      </instance>
+      <instance id="gender_list">
+        <root>
+          <item>
+            <name>male</name>
+            <label>MALE</label>
+          </item>
+          <item>
+            <name>female</name>
+            <label>FEMALE</label>
+          </item>
+        </root>
+      </instance>
+      <instance id="id_types_list">
+        <root>
+          <item>
+            <name>birth_certificate</name>
+            <label>Birth Certificate</label>
+          </item>
+          <item>
+            <name>sin</name>
+            <label>Social Insurance Card</label>
+          </item>
+          <item>
+            <name>mb_health</name>
+            <label>Manitoba Health Card</label>
+          </item>
+          <item>
+            <name>treaty_card</name>
+            <label>Treaty Card</label>
+          </item>
+          <item>
+            <name>other</name>
+            <label>Other (specify ID)</label>
+          </item>
+          <item>
+            <name>mb_dl</name>
+            <label>MB Driver's License with Photo</label>
+          </item>
+        </root>
+      </instance>
+      <instance id="reason_list">
+        <root>
+          <item>
+            <name>child_protection</name>
+            <label>With or Without Consent: Child Protection Concerns</label>
+          </item>
+          <item>
+            <name>place_of_safety</name>
+            <label>Must have consent: Place of Safety</label>
+          </item>
+          <item>
+            <name>kinship_care</name>
+            <label>Must have consent: Kinship or Customary Care Agreement</label>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_consent/consent_text" readonly="true()" type="string"/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_consent/is_unconsented" type="string" required="false()"/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_consent/consent_date" type="date" required="false()" relevant="not(selected( /Criminal_Risk_Assessment_Request_XLSForm/sec_consent/is_unconsented , 'unconsented'))"/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_consent/consent_signature" type="binary" required="false()" relevant="not(selected( /Criminal_Risk_Assessment_Request_XLSForm/sec_consent/is_unconsented , 'unconsented'))" orx:max-pixels="1024"/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_consent/witness_name" type="string" required="false()" relevant="not(selected( /Criminal_Risk_Assessment_Request_XLSForm/sec_consent/is_unconsented , 'unconsented'))"/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/print_note" readonly="true()" type="string"/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/first_name" type="string" required="true()" jr:requiredMsg="First name is required."/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/second_name" type="string" required="false()"/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/last_name" type="string" required="true()" jr:requiredMsg="Last name is required."/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/calc_full_name" type="string" calculate="if( /Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/second_name  != '', concat( /Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/first_name , ' ',  /Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/second_name , ' ',  /Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/last_name ), concat( /Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/first_name , ' ',  /Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/last_name ))"/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/date_of_birth" type="date" required="true()" jr:requiredMsg="Date of birth is required."/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/gender" type="string" required="true()" jr:requiredMsg="Sex is required."/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/other_last_names" type="string" required="false()"/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/other_first_names" type="string" required="false()"/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/current_address" type="string" required="false()"/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/current_phone" type="string" required="false()" constraint=". = '' or regex(., '^\+?[0-9\s\-\(\)\.,\/]{7,30}$')" jr:constraintMsg="Please enter a valid phone number (e.g., 204-555-0199)."/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/birth_place" type="string" required="false()"/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_identification/id_instruction_note" readonly="true()" type="string"/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_identification/id_documents" type="string" required="false()" constraint="count-selected(.) &gt;= 2" jr:constraintMsg="Subject must be identified with at least TWO pieces of identification."/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_identification/id_other_specify" type="string" required="selected( /Criminal_Risk_Assessment_Request_XLSForm/sec_identification/id_documents , 'other')" jr:requiredMsg="Please specify the other identification document." relevant="selected( /Criminal_Risk_Assessment_Request_XLSForm/sec_identification/id_documents , 'other')"/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_identification/mb_dl_number" type="string" required="selected( /Criminal_Risk_Assessment_Request_XLSForm/sec_identification/id_documents , 'mb_dl')" jr:requiredMsg="Please enter the Manitoba Driver's License number." relevant="selected( /Criminal_Risk_Assessment_Request_XLSForm/sec_identification/id_documents , 'mb_dl')"/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/subject_name_header" readonly="true()" type="string"/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/cpic_niche_notice" readonly="true()" type="string"/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/asterisk_notice" readonly="true()" type="string"/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/agency_name" type="string" required="true()"/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/reason_for_assessment" type="string" required="true()" constraint=". = 'child_protection' or not(selected( /Criminal_Risk_Assessment_Request_XLSForm/sec_consent/is_unconsented , 'unconsented'))" jr:constraintMsg="Place of Safety and Kinship Care require subject consent."/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/assigned_worker" type="string" required="true()"/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/last_assessment_date" type="date" required="false()"/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/submitting_designate" type="string" required="true()"/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/designate_phone" type="string" required="true()" constraint="regex(., '^\+?[0-9\s\-\(\)\.]{7,20}$')" jr:constraintMsg="Please enter a valid phone number (e.g., 204-555-0199)."/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/designate_email" type="string" required="true()" constraint="regex(., '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$')" jr:constraintMsg="Please enter a valid email address."/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/designate_fax" type="string" required="false()" constraint=". = '' or regex(., '^\+?[0-9\s\-\(\)\.]{7,20}$')" jr:constraintMsg="Please enter a valid fax number (e.g., 204-555-0199)."/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/request_date" type="date" required="true()"/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/disclaimer_note" readonly="true()" type="string"/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/meta/instanceID" type="string" readonly="true()" jr:preload="uid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="field-list" ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_consent">
+      <label>Consent for Criminal Risk Assessment and Release of Information</label>
+      <input ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_consent/consent_text">
+        <label>CONSENT FOR CRIMINAL RISK ASSESSMENT AND RELEASE OF INFORMATION
+
+As a person who has, or may have, care, custody, control or charge of a child in receipt of services under The Child and Family Services Act, I authorize the Criminal Risk Assessment Unit of Manitoba Families' Child Protection Branch ("CRAU") to conduct enquiries of the Winnipeg Police Service (WPS), the RCMP and other law enforcement agencies necessary to assess the risk that I may endanger the life, health or emotional wellbeing of a child. I understand that this information is requested by (CFS Agency) for the purposes of, and in accordance with, s. 18.4(1.1) of The Child and Family Services Act, and may include a criminal record, criminal and Provincial Act convictions, orders or charges, other involvement/contact with law enforcement (including non-conviction information) or other information. I authorize the disclosure of said information to CRAU and an authorized Child and Family Services Agency designate or designates. I also authorize the disclosure of the personal identifying information set out below to CRAU, the WPS, RCMP and other law enforcement agencies for the purpose of completing a Criminal Risk Assessment. I understand that the results of this Criminal Risk Assessment are confidential, and may not be provided to me, but may be disclosed in accordance with s.76 of the Child and Family Services Act.</label>
+      </input>
+      <select ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_consent/is_unconsented">
+        <label>Consent Status</label>
+        <itemset nodeset="instance('unconsented_list')/root/item">
+          <value ref="name"/>
+          <label ref="label"/>
+        </itemset>
+      </select>
+      <input ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_consent/consent_date">
+        <label>Date of Consent</label>
+      </input>
+      <upload mediatype="image/*" appearance="signature" ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_consent/consent_signature">
+        <label>Signature of Person Being Assessed</label>
+      </upload>
+      <input ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_consent/witness_name">
+        <label>Witness (if consenting)</label>
+      </input>
+    </group>
+    <group ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info">
+      <label>Subject Identification (Person Being Assessed)</label>
+      <input ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/print_note">
+        <label>PLEASE PRINT CLEARLY</label>
+      </input>
+      <input ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/first_name">
+        <label>1. FIRST NAME:</label>
+      </input>
+      <input ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/second_name">
+        <label>2. SECOND NAME:</label>
+      </input>
+      <input ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/last_name">
+        <label>3. LAST NAME:</label>
+      </input>
+      <input ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/date_of_birth">
+        <label>4. DATE OF BIRTH:</label>
+        <hint>Day / Month / Year</hint>
+      </input>
+      <select1 appearance="quick" ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/gender">
+        <label>5. SEX:</label>
+        <itemset nodeset="instance('gender_list')/root/item">
+          <value ref="name"/>
+          <label ref="label"/>
+        </itemset>
+      </select1>
+      <input ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/other_last_names">
+        <label>6. OTHER LAST NAMES USED:</label>
+      </input>
+      <input ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/other_first_names">
+        <label>7. OTHER FIRST NAMES USED/ALSO GOES BY:</label>
+      </input>
+      <input appearance="multiline" ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/current_address">
+        <label>8. CURRENT ADDRESS (include postal code):</label>
+      </input>
+      <input ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/current_phone">
+        <label>9. CURRENT PH#s:</label>
+      </input>
+      <input ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/birth_place">
+        <label>10. City/Province or Country of Birth:</label>
+      </input>
+    </group>
+    <group ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_identification">
+      <label>Pieces of Identification</label>
+      <input ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_identification/id_instruction_note">
+        <label>*PLEASE NOTE: Subject's name must be identified with TWO PIECES OF IDENTIFICATION (MB D/L &amp; photo ID is preferable):</label>
+      </input>
+      <select ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_identification/id_documents">
+        <label>Select Identification Provided</label>
+        <itemset nodeset="instance('id_types_list')/root/item">
+          <value ref="name"/>
+          <label ref="label"/>
+        </itemset>
+      </select>
+      <input ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_identification/id_other_specify">
+        <label>Other (specify ID):</label>
+      </input>
+      <input ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_identification/mb_dl_number">
+        <label>MB Driver's License with Photo - licence number (section 4d on licence):</label>
+        <hint>Refer to section 4d on licence</hint>
+      </input>
+    </group>
+    <group ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request">
+      <label>Submitting Agency &amp; Request Details</label>
+      <input ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/subject_name_header">
+        <label> NAME OF PERSON BEING ASSESSED: <output value=" /Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/calc_full_name "/>
+*Must match information on page 1 </label>
+      </input>
+      <input ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/cpic_niche_notice">
+        <label>IT IS IMPORTANT THAT THE CFS AGENCY DESIGNATE READS AND UNDERSTANDS THE FOLLOWING:
+
+The identifying information supplied on page 1 will be researched through the Canadian Police Information Centre (CPIC) and Winnipeg Police Service Records Management System (NICHE). The research will NOT include a vulnerable sector search or information in respect of pardons, which information may impact the results of a risk assessment. Criminal Convictions are strictly confidential and cannot be shared without written authorization of the person involved. Personal Information is governed under Section 8 of the Privacy Act (Federal Statute). PLEASE NOTE that record information is based on NAME AND DATE OF BIRTH SEARCH ONLY and does not necessarily indicate subject involvement. Verification can only be provided through the submission of fingerprints to the local law enforcement agency for the area in which the person being assessed resides. In the case of dispute regarding the identity of the person being assessed, that person is advised to attend any RCMP Detachment; Winnipeg Police Service, 245 Smith Street, Winnipeg, Manitoba; Brandon Police Service, 1340 10th Street, Brandon, Manitoba; or local Police Agency. A fee for service is required.</label>
+      </input>
+      <input ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/asterisk_notice">
+        <label>NOTE – SECTIONS MARKED WITH AN ASTERISK (*) ARE REQUIRED</label>
+      </input>
+      <input ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/agency_name">
+        <label>NAME OF AGENCY SUBMITTING REQUEST:</label>
+      </input>
+      <select1 ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/reason_for_assessment">
+        <label>REASON FOR RISK ASSESSMENT:</label>
+        <itemset nodeset="instance('reason_list')/root/item">
+          <value ref="name"/>
+          <label ref="label"/>
+        </itemset>
+      </select1>
+      <input ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/assigned_worker">
+        <label>ASSIGNED WORKER:</label>
+      </input>
+      <input ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/last_assessment_date">
+        <label>DATE OF LAST CRIMINAL RISK ASSESSMENT (if known):</label>
+      </input>
+      <input ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/submitting_designate">
+        <label>SUBMITTING DESIGNATE:</label>
+      </input>
+      <input ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/designate_phone">
+        <label>DESIGNATE PH#:</label>
+      </input>
+      <input ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/designate_email">
+        <label>DESIGNATE EMAIL#:</label>
+      </input>
+      <input ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/designate_fax">
+        <label>DESIGNATE FAX#</label>
+      </input>
+      <input ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/request_date">
+        <label>REQUEST DATE:</label>
+      </input>
+      <input ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/disclaimer_note">
+        <label>NOTE: The assessment completed by the Criminal Risk Assessment Unit of the Department of Families Child Protection Branch does not replace a criminal records check.</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>
