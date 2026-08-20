@@ -118,7 +118,7 @@
       </instance>
       <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_consent/consent_text" readonly="true()" type="string"/>
       <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_consent/is_unconsented" type="string" required="false()"/>
-      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_consent/consent_date" type="date" required="false()" relevant="not(selected( /Criminal_Risk_Assessment_Request_XLSForm/sec_consent/is_unconsented , 'unconsented'))"/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_consent/consent_date" type="date" required="true()" jr:requiredMsg="Date of consent is required." relevant="not(selected( /Criminal_Risk_Assessment_Request_XLSForm/sec_consent/is_unconsented , 'unconsented'))"/>
       <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_consent/consent_signature" type="binary" required="false()" relevant="not(selected( /Criminal_Risk_Assessment_Request_XLSForm/sec_consent/is_unconsented , 'unconsented'))" orx:max-pixels="1024"/>
       <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_consent/witness_name" type="string" required="false()" relevant="not(selected( /Criminal_Risk_Assessment_Request_XLSForm/sec_consent/is_unconsented , 'unconsented'))"/>
       <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/print_note" readonly="true()" type="string"/>
