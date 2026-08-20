@@ -137,7 +137,7 @@
       <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_identification/id_documents" type="string" required="false()" constraint="count-selected(.) &gt;= 2" jr:constraintMsg="Subject must be identified with at least TWO pieces of identification."/>
       <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_identification/id_other_specify" type="string" required="selected( /Criminal_Risk_Assessment_Request_XLSForm/sec_identification/id_documents , 'other')" jr:requiredMsg="Please specify the other identification document." relevant="selected( /Criminal_Risk_Assessment_Request_XLSForm/sec_identification/id_documents , 'other')"/>
       <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_identification/mb_dl_number" type="string" required="selected( /Criminal_Risk_Assessment_Request_XLSForm/sec_identification/id_documents , 'mb_dl')" jr:requiredMsg="Please enter the Manitoba Driver's License number." relevant="selected( /Criminal_Risk_Assessment_Request_XLSForm/sec_identification/id_documents , 'mb_dl')"/>
-      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/subject_name_header" readonly="true()" type="string"/>
+      <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/subject_name_header" type="string" calculate="/Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/calc_full_name" readonly="true()"/>
       <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/cpic_niche_notice" readonly="true()" type="string"/>
       <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/asterisk_notice" readonly="true()" type="string"/>
       <bind nodeset="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/agency_name" type="string" required="true()"/>
@@ -242,8 +242,8 @@ As a person who has, or may have, care, custody, control or charge of a child in
     <group ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request">
       <label>Submitting Agency &amp; Request Details</label>
       <input ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/subject_name_header">
-        <label> NAME OF PERSON BEING ASSESSED: <output value="/Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/calc_full_name" />
-*Must match information on page 1 </label>
+        <label>NAME OF PERSON BEING ASSESSED:</label>
+        <hint>*Must match information on page 1</hint>
       </input>
       <input ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/cpic_niche_notice">
         <label>IT IS IMPORTANT THAT THE CFS AGENCY DESIGNATE READS AND UNDERSTANDS THE FOLLOWING:
