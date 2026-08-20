@@ -242,7 +242,7 @@ As a person who has, or may have, care, custody, control or charge of a child in
     <group ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request">
       <label>Submitting Agency &amp; Request Details</label>
       <input ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/subject_name_header">
-        <label> NAME OF PERSON BEING ASSESSED: <output value=" /Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/calc_full_name "/>
+        <label> NAME OF PERSON BEING ASSESSED: <output value="/Criminal_Risk_Assessment_Request_XLSForm/sec_subject_info/calc_full_name" />
 *Must match information on page 1 </label>
       </input>
       <input ref="/Criminal_Risk_Assessment_Request_XLSForm/sec_agency_request/cpic_niche_notice">
