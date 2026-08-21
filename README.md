@@ -15,5 +15,6 @@ Converted the provided PDF into a functional ODK XLSForm with validation and con
 - `Criminal_Risk_Assessment_Request_XLSForm.xlsx`
 - Walkthrough video
 
-## Video
-[Walkthrough Video](YOUR_VIDEO_LINK) 
+## Video Submission
+
+[Round 2 Assignment Walkthrough](videos/Round2-walkthrough.mp4)
