@@ -18,3 +18,4 @@ Converted the provided PDF into a functional ODK XLSForm with validation and con
 ## Video Submission
 
 [Round 2 Assignment Walkthrough](videos/Round2-walkthrough.mp4)
+[ Round 2 Assignment Walkthrough](https://drive.google.com/file/d/1ufem2Nujpq1eikbeRjk2BsXpGFM9SICv/view?usp=sharing)
